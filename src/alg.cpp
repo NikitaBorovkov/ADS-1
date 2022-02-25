@@ -7,7 +7,8 @@ bool checkPrime(uint64_t value) {
   int prov = 2;
   for (int i = 2; i < (value / 2); i++) {
     if (value % i == 0) {
-      k += 2;
+      return 0;
+      break;
     }
     prov = i;
   }
