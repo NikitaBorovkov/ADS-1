@@ -5,21 +5,15 @@
 bool checkPrime(uint64_t value) {
   int k = 2;
   int prov = 2;
-  for (int i = 2; i < (value / 2); i++) {
+  if (value <= 1) {
+    return 0;
+  }
+  for (int i = 2; i <= (value / 2); i++) {
     if (value % i == 0) {
       return 0;
-      break;
     }
-    prov = i;
   }
-  if (prov * prov == value) {
-    k += 1;
-  }
-  if (k == 2) {
-    return true;
-  } else {
-    return false;
-  }
+  return true;
 }
 
 uint64_t nPrime(uint64_t n) {
@@ -47,8 +41,8 @@ uint64_t nextPrime(uint64_t value) {
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-  int sum = 2;
-  for (int i = 3; i < hbound; i++) {
+  int sum = 0;
+  for (int i = 2; i < hbound; i++) {
     if (checkPrime(i)) {
       sum += i;
     }
